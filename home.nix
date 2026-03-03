@@ -9,6 +9,7 @@
     ./modules/rofi.nix
     ./modules/kitty.nix
     ./modules/superfile.nix
+	./modules/japanese.nix
   ]; 
   home.username = "nate";
   home.homeDirectory = "/home/nate";
@@ -24,10 +25,6 @@
 	btop
 	pamixer
 	brightnessctl
-	font-awesome
-	nerd-fonts.fira-code
-	nerd-fonts.jetbrains-mono
-	calcure
 	firefox
 	thunderbird
 	discord
@@ -35,6 +32,7 @@
 	plexamp
 	vscode
 	ffmpeg
+	mpv
 	nodejs
 	obsidian
 	wl-clipboard
@@ -45,6 +43,27 @@
 	polychromatic
 	kdePackages.gwenview
 	nicotine-plus
+	swayimg
+	yt-dlp
+	calcurse
+	pandoc
+	texliveMedium
+	zathura
+	anki
+
+	# -- mc + jdk runtime --
+	prismlauncher 
+
+	# -- Fonts and IME stuff -- 
+	font-awesome
+	nerd-fonts.fira-code
+	nerd-fonts.jetbrains-mono
+	ipafont
+	kochi-substitute
+	noto-fonts-cjk-sans
+	noto-fonts
+	noto-fonts-lgc-plus
+	noto-fonts-color-emoji
   ];
   home.sessionVariables = { 
     GTK_THEME = "Adwaita:dark"; 
