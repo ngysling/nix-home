@@ -37,6 +37,7 @@
 	qemu
 	quickemu
 	openrazer-daemon
+	usbutils
   ]; 
   environment.sessionVariables = { 
 	GTK_THEME = "Adwaita:dark"; 
@@ -94,7 +95,10 @@
   networking.hostName = "x1nano"; # Define your hostname.
   networking.networkmanager.enable = true;  
   time.timeZone = "America/New_York";
-  services.tailscale.enable = true; 
+  services.tailscale = {
+  	enable = true; 
+	extraSetFlags = [ "--accept-routes" ];
+  };
   users.users.nate = {
     isNormalUser = true;
     extraGroups = [ "wheel" "openrazer" ]; 
