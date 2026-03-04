@@ -10,7 +10,11 @@
     ./modules/kitty.nix
     ./modules/superfile.nix
 	./modules/japanese.nix
+	./modules/drpp.nix
   ]; 
+  services.discord-rpc-plex = { 
+  	enable = true; 
+  }; 
   home.username = "nate";
   home.homeDirectory = "/home/nate";
   home.packages = with pkgs; [
