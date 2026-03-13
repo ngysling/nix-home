@@ -21,7 +21,7 @@ let
     home.hyprdynamicmonitors = { 
 		enable = true;
 		installExamples = false;
-		systemdTarget = "graphical.target"; 
+		#systemdTarget =  "graphical-session.target"; 
 		extraFlags = ["--disable-power-events"];
 		config = ''#toml
 		[profiles.docked]
