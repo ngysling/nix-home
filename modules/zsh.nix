@@ -5,7 +5,8 @@
     shellAliases = { 
       vim = "nvim";
 	  repono = "kitty +kitten ssh -i ~/.ssh/homelab nate@192.168.1.140"; 
-	  udelgo = "kitty +kitten ssh -i ~/.ssh/udel-go ngysling@go.eecis.udel.edu"; 
+	  udelgo = "kitty +kitten ssh -i ~/.ssh/udel ngysling@go.eecis.udel.edu"; 
+	  cisc372 = "kitty +kitten ssh -i ~/.ssh/udel ngysling@cisc372.cis.udel.edu"; 
 	  taildrop = "sudo tailscale file get .";
 	  rebuild = "sudo nixos-rebuild switch --flake /home/nate/nix-home";
     };
