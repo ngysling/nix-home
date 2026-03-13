@@ -26,22 +26,30 @@
   fileSystems."/home/nate/samba/storage" = { 
   	device = "//192.168.1.140/storage";
 	fsType = "cifs"; 
-	options = ["credentials=/home/nate/.smb-credentials" "defaults" "uid=1000" "gid=1"]; 
+	options = let 
+	      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		  in ["${automount_opts},credentials=/home/nate/.smb-credentials,uid=1000,gid=100"]; 
   };
   fileSystems."/home/nate/samba/zfs" = { 
   	device = "//192.168.1.140/zfs";
 	fsType = "cifs"; 
-	options = ["credentials=/home/nate/.smb-credentials" "defaults" "uid=1000" "gid=1"]; 
+	options = let 
+	      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		  in ["${automount_opts},credentials=/home/nate/.smb-credentials, uid=1000,gid=100"]; 
   }; 
   fileSystems."/home/nate/samba/pictures" = { 
   	device = "//192.168.1.140/zfs-pictures";
 	fsType = "cifs"; 
-	options = ["credentials=/home/nate/.smb-credentials" "defaults" "uid=1000" "gid=1"]; 
+	options = let 
+	      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		  in ["${automount_opts},credentials=/home/nate/.smb-credentials, uid=1000,gid=100"]; 
   };
   fileSystems."/home/nate/samba/videos" = { 
   	device = "//192.168.1.140/zfs-videos";
 	fsType = "cifs"; 
-	options = ["credentials=/home/nate/.smb-credentials" "defaults" "uid=1000" "gid=1"]; 
+	options = let 
+	      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+		  in ["${automount_opts},credentials=/home/nate/.smb-credentials, uid=1000,gid=100"]; 
   };
   swapDevices =
     [ { device = "/dev/disk/by-uuid/ab506577-21cf-46ed-ba98-27c1ccdd7d96"; }
