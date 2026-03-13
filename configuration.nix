@@ -3,10 +3,11 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 {
   imports = [
       ./hardware-configuration.nix
+	  ./modules/noise-suppression.nix
   ];
   nix = { 
 	settings = { 
@@ -25,6 +26,17 @@
 	openrazer-daemon
 	usbutils
   ]; 
+  services.upower.enable = true; 
+  programs.uwsm = { 
+    enable = true;
+	waylandCompositors = { 
+	  hyprland = {
+	    prettyName = "Hyprland";
+	    comment = "Hyprland compositor managed by UWSM";
+	    binPath = "/run/current-system/sw/bin/Hyprland";
+	  };
+    }; 
+  }; 
   environment.sessionVariables = { 
 	GTK_THEME = "Adwaita:dark"; 
 	NIXOS_OZONE_WL = "1"; 
