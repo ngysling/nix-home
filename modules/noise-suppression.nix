@@ -21,7 +21,7 @@
                   plugin = "${pkgs.rnnoise-plugin}/lib/ladspa/librnnoise_ladspa.so";
                   label = "noise_suppressor_mono";
                   control = {
-                    "VAD Threshold (%)" = 50.0;
+                    "VAD Threshold (%)" = 40.0;
                     "VAD Grace Period (ms)" = 200;
                   };
                 }
@@ -29,10 +29,8 @@
             };
             "capture.props" = {
               "node.name" = "capture.rnnoise_source";
-              "node.passive" = true;
               "audio.rate" = 48000;
-              # This ensures it doesn't accidentally grab a monitor stream
-              "target.object" = "alsa_input"; 
+			  "target.object" = "alsa_input.usb-Jieli_Technology_USB_Composite_Device_55161A7892785A13-00.mono-fallback";
             };
             "playback.props" = {
               "node.name" = "rnnoise_source";
