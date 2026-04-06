@@ -42,9 +42,27 @@
 	NIXOS_OZONE_WL = "1"; 
   };  
   hardware = { 
+	bluetooth = { 
+		enable = true;
+		powerOnBoot = true; 
+		settings = { 
+			General = { 
+				Experimental = true; 
+			}; 
+		}; 
+	}; 
 	graphics.enable = true; 
 	openrazer.enable = true; 
   };
+	systemd.user.services.razer-dpi = {
+	  description = "Set Razer DPI on login";
+	  wantedBy = [ "default.target" ];
+	  after = [ "openrazer-daemon.service" ];
+	  serviceConfig = {
+		Type = "oneshot";
+		ExecStart = "${pkgs.razer-cli}/bin/razer-cli -d 800";
+	  };
+	};
   fonts = {
       fontconfig = {
         enable = true; 
@@ -102,15 +120,6 @@
     extraGroups = [ "wheel" "openrazer" ]; 
     shell = pkgs.zsh; 
   };
-  hardware.bluetooth = { 
-	enable = true;
-	powerOnBoot = true; 
-	settings = { 
-		General = { 
-			Experimental = true; 
-		}; 
-	}; 
-  }; 
   services.pcscd.enable = true; 
   programs.gnupg.agent = { 
   	enable = true;
