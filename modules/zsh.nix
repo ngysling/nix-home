@@ -7,6 +7,7 @@
 	  repono = "kitty +kitten ssh -i ~/.ssh/homelab nate@192.168.1.140"; 
 	  udelgo = "kitty +kitten ssh -i ~/.ssh/udel ngysling@go.eecis.udel.edu"; 
 	  cisc372 = "kitty +kitten ssh -i ~/.ssh/udel ngysling@cisc372.cis.udel.edu"; 
+	  darwin = "kitty +kitten ssh -i ~/.ssh/udel ngysling@darwin.hpc.udel.edu"; 
 	  taildrop = "sudo tailscale file get .";
 	  rebuild = "sudo nixos-rebuild switch --flake /home/nate/nix-home";
     };
