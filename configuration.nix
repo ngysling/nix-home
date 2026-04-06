@@ -8,6 +8,7 @@
   imports = [
       ./hardware-configuration.nix
 	  ./modules/noise-suppression.nix
+	  ./modules/sddm.nix
   ];
   nix = { 
 	settings = { 
@@ -15,6 +16,7 @@
 	}; 
   }; 
   environment.systemPackages = with pkgs; [ 
+  	hyprland
 	neovim
 	git
 	wget
@@ -27,16 +29,21 @@
 	usbutils
   ]; 
   services.upower.enable = true; 
-  programs.uwsm = { 
-    enable = true;
-	waylandCompositors = { 
-	  hyprland = {
-	    prettyName = "Hyprland";
-	    comment = "Hyprland compositor managed by UWSM";
-	    binPath = "/run/current-system/sw/bin/Hyprland";
-	  };
-    }; 
+  programs.hyprland = { 
+      enable = true;
+	  withUWSM = true; 
   }; 
+  programs.uwsm.enable = true; 
+#  programs.uwsm = { 
+#    enable = true;
+#	waylandCompositors = { 
+#	  hyprland = {
+#	    prettyName = "Hyprland";
+#	    comment = "Hyprland compositor managed by UWSM";
+#	    binPath = "/run/current-system/sw/bin/Hyprland";
+#	  };
+#    }; 
+#  }; 
   environment.sessionVariables = { 
 	GTK_THEME = "Adwaita:dark"; 
 	NIXOS_OZONE_WL = "1"; 

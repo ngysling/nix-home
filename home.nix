@@ -18,7 +18,6 @@
   home.username = "nate";
   home.homeDirectory = "/home/nate";
   home.packages = with pkgs; [
-	hyprland
 	hyprlock
 	swww
 	dunst
