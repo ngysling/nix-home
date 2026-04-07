@@ -18,6 +18,7 @@
   home.username = "nate";
   home.homeDirectory = "/home/nate";
   home.packages = with pkgs; [
+    fastfetch
 	hyprlock
 	swww
 	dunst

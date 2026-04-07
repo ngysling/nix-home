@@ -80,11 +80,12 @@
         }; 
       }; 
       packages = with pkgs; [
-	nerd-fonts.jetbrains-mono
-	nerd-fonts.fira-code
-	noto-fonts-color-emoji
-	liberation_ttf
-	jigmo # kanji
+		font-awesome
+		nerd-fonts.jetbrains-mono
+		nerd-fonts.fira-code
+		noto-fonts-color-emoji
+		liberation_ttf
+		jigmo # kanji
       ]; 
   }; 
   xdg.portal = {

@@ -10,6 +10,7 @@
 	  darwin = "kitty +kitten ssh -i ~/.ssh/udel ngysling@darwin.hpc.udel.edu"; 
 	  taildrop = "sudo tailscale file get .";
 	  rebuild = "sudo nixos-rebuild switch --flake /home/nate/nix-home";
+	  fastfetch = "fastfetch --logo-color-1 \"#DBC93F\" --logo-color-2 \"#DBC93F\"";
     };
 	sessionVariables = { 
       QT_IM_MODULE = "fcitx";
