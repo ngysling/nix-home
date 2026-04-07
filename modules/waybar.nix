@@ -6,13 +6,16 @@
     style = builtins.readFile ../waybar/style.css; 
     settings = {
       mainBar = {
+	  	spacing = 0; 
+		height = 30; 
         layer = "top";
-        position = "top";
+		margin-top = 5; 
         exclusive = true;
         passthrough = false;
-        height = 20;
 
         modules-left = [
+		  "custom/menu"
+		  "custom/divider"
           "cpu"
           "custom/divider"
           "memory"
@@ -27,25 +30,22 @@
         modules-center = [ "clock" ];
         
         modules-right = [
-          "backlight"
-          "custom/divider"
 		  "custom/notification"
+		  "custom/divider"
+          "custom/clipboard"
+		  "custom/divider"
+          "backlight"
           "custom/divider"
           "pulseaudio"
           "custom/divider"
           "tray"
-          "custom/divider"
-          "custom/clipboard"
        ];
 
         clock = {
-          tooltip = false;
-          format = " {:%a, %e %b, %I:%M %p }";
-        };
-
-        "custom/launcher" = {
-          tooltip = false;
-          format = " 󰣇";
+          tooltip = true;
+		  format = " {:%I:%M %p}";
+          tooltip-format = "{:%a, %b%e}";
+		  on-click = "kitty calcurse"; 
         };
 
         cpu = {
@@ -65,7 +65,7 @@
           interval = 100;
           interface = "wlp0s20f3";
           format = "{ifname}";
-          format-wifi = "  ({signalStrength}%) ";
+          format-wifi = "";
           format-ethernet = " {ipaddr}/{cidr} ";
           format-disconnected = "Disconnected "; # An empty format will hide the module
           tooltip-format = " {ifname} via {gwaddr}";
@@ -92,7 +92,13 @@
         "custom/clipboard" = {
           format = "";
           on-click = "kitty --class clipse -e 'clipse'";
+		  tooltip = false; 
         };
+
+	    "custom/menu" = { 
+			format = ""; 
+			on-click = "rofi -show drun"; 
+		}; 
 
         backlight = {
           device = "intel_backlight";
@@ -102,6 +108,7 @@
           on-scroll-up = "brightnessctl set 1%+";
           on-scroll-down = "brightnessctl set 1%-";
           min-length = 6;
+		  tooltip = false; 
         };
 
         pulseaudio = {
@@ -131,8 +138,8 @@
           };
        #   format: "<span font='JetBrainsMono Nerd Font'> {capacity}%</span>"
           format = "{icon}  {capacity}% ";
-          format-charging = "󰂄 {capacity}% ";
-          format-plugged = "󰂄 {capacity}% ";
+          format-charging = "󰉁 {capacity}% ";
+          format-plugged = " {capacity}% ";
           format-alt = "{time} {icon} ";
           format-icons = ["" "" "" "" ""];
         };
@@ -144,6 +151,7 @@
 
         "custom/divider" = {
           format = "|";
+		  tooltip = false; 
         };
 
         "custom/notification" = {

@@ -5,7 +5,7 @@ home.packages = with pkgs; [
 ]; 
 
 home.file = { 
-	".config/kitty/kitty.conf".source = ../kitty/nord.conf;
+	".config/kitty/kitty.conf".source = ../kitty/lab.conf;
 }; 
 }
 
